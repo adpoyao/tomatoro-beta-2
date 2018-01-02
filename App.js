@@ -3,14 +3,9 @@ import { Provider } from 'react-redux'
 import { StyleSheet, Text, View } from 'react-native';
 
 import store from './src/store'
-import { sayHello } from './src/actions'
 import { HelloWorld } from './src/components/HelloWorld/HelloWorld'
 
 export default class App extends React.Component {
-
-  handlePress = () => {
-    alert('Hello World');
-  }
 
   render() {
     return (
