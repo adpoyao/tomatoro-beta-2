@@ -1,18 +1,21 @@
 import React from 'react';
-import { Provider } from 'react-redux'
 import { StyleSheet, Text, View } from 'react-native';
+import { AppNavigator } from './src/reducers/navigators'
+import { addNavigationHelpers } from "react-navigation";
 
-import store from './src/store'
-import { HelloWorld } from './src/components/HelloWorld/HelloWorld'
+import store from './src/store';
+import { Provider } from 'react-redux';
+
+import RootTabs from './src/Navigators/RootTabs'
+import RootNavigator from './src/Navigators/StackNavigator'
 
 export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <HelloWorld handlePress={this.handlePress}/>
-        </View>
+      <Provider store={store}>     
+        <RootTabs/>
+        {/* <RootNavigator/> */}
       </Provider>
     );
   }

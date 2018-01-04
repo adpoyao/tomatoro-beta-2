@@ -1,8 +1,9 @@
-import { SAY_HELLO } from './actionType'
+import { SELECT_EXERCISE} from './actionType'
 
-export const sayHello = () => {
-  return {
-    type: SAY_HELLO,
-    display: 'Hello World'
-  }
-}
+export const selectExercise = exercise => {
+  return ({
+    type: SELECT_EXERCISE,
+    exercise,
+  })
+};
+
