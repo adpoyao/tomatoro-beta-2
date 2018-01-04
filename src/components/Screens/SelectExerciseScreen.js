@@ -6,10 +6,10 @@ import { NavigationActions } from 'react-navigation';
 import ExerciseSelection from '../ExerciseSelection/ExerciseSelection'
 
 const SelectExerciseScreen = (props) => {
-  let exerciseList = props.exerciseList.map(item => {
+  let exerciseList = props.exerciseList.map((item, index) => {
     return(
-      <View>
-        <ExerciseSelection 
+      <View key={index}>
+        <ExerciseSelection
           exercise={item.exercise}
           description={item.description}
           queue={item.queue[props.level]}
