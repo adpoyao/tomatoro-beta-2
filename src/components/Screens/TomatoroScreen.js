@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
+import { Button } from 'react-native-elements';
 
 import Timer from '../Timer/Timer'
 import TimerButton from '../TimerButton/TimerButton'
@@ -12,12 +13,15 @@ class TomatoroScreen extends Component {
       <View style={styles.container}>
         <Timer/>
         <TimerButton />
-        <View style={styles.buttons}>
+          <View style={styles.buttons}>
           <Button 
+            icon={{name: 'accessibility'}}
+            backgroundColor="#ffbf47"
             title="Skip to Stretching" 
             onPress={()=>
               this.props.dispatch(NavigationActions.navigate({ routeName: 'SelectExercise'}))}/>
           <Button 
+            icon={{name: 'settings'}}
             title="Settings"
             onPress={() =>
               this.props.dispatch(NavigationActions.navigate({ routeName: 'Settings' }))}
@@ -35,7 +39,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttons: {
-
+    width: '100%',
+    marginTop: 50,
   }
 });
 

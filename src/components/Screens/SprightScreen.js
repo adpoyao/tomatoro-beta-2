@@ -7,13 +7,14 @@ import BreakTimer from '../BreakTimer/BreakTimer';
 
 const SprightsScreen = (props) => (
   <View style={styles.container}>
-    <BreakTimer/>
+    <BreakTimer />
+    <View style={styles.divider}></View>
     <ScrollView style={styles.scrollView}>
-      <Text>{props.selectedClass}</Text>
-      <Text>{props.queue}</Text>
-      {/* TODO: Adjust Scrollview Height */}
+      <Text style={styles.classTitle}>{props.selectedClass}</Text>
+      <Text style={styles.instructions}>{props.queue}</Text>
       <Button 
         title="Completed"
+        style={styles.button}
         onPress={() => {
           props.navigation.dispatch(NavigationActions.back());
           props.navigation.dispatch(NavigationActions.back())}
@@ -33,7 +34,27 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center', 
     justifyContent: 'flex-start',
+    marginTop: 30
   },
+  divider:{
+    height: 3,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  },
+  scrollView: {
+    marginTop: 30,
+    marginRight: 15,
+    marginLeft: 15
+  },
+  classTitle: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginBottom: 15
+  },
+  instructions: {
+    marginBottom: 15
+  }
 });
 
 

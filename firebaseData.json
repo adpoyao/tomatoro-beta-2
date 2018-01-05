@@ -42,3 +42,6 @@
     }
   ]
 }
+
+//Config.js file at the root of project: paste firebase code
+//npm install and import firebase

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { loadPTime, togglePTimer } from '../../actions'
 import { NavigationActions } from 'react-navigation';
-import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 import { Avatar, Icon } from 'react-native-elements';
 
@@ -18,12 +18,13 @@ class TimerButton extends Component {
         function(){this.subtractTime()}, 1000);
       subtractTime = () => {
         if(this.props.pTimeLeft === 0){
-          clearInterval(this.timer)
+          clearInterval(this.timer);
           this.props.dispatch(NavigationActions.navigate({ routeName: 'SelectExercise'}))
+          this.props.dispatch(togglePTimer(false));
           this.props.dispatch(loadPTime(this.props.configuredPTime))
         }
         else {
-          this.props.dispatch(loadPTime(this.props.pTimeLeft - 60000)) //default: 1000, development: 60000
+          this.props.dispatch(loadPTime(this.props.pTimeLeft - 1000)) //default: 1000, development: 60000
         }
       }
     } 
