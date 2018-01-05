@@ -6,9 +6,9 @@ import store from './src/store';
 class Root extends React.Component {
   render() {
     return (
-      <Provider store={store}>
+      // <Provider store={store}>
         <AppWithNavigationState />
-      </Provider>
+      // </Provider>
     );
   }
 }

@@ -6,3 +6,6 @@ export const SET_STIME = "SET_STIME";
 
 export const LOAD_PTIME= "LOAD_PTIME";
 export const LOAD_STIME= "LOAD_STIME";
+
+export const TOGGLE_PTIMER= "TOGGLE_PTIMER";
+export const TOGGLE_STIMER= "TOGGLE_STIMER";

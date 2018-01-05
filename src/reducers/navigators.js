@@ -2,27 +2,40 @@ import { NavigationActions } from 'react-navigation';
 
 import { RootNavigator } from '../Navigators';
 
-// Start with two routes: The Main screen, with the Login screen on top.
-const firstAction = RootNavigator.router.getActionForPathAndParams('SelectExercise');
-const tempNavState = RootNavigator.router.getStateForAction(firstAction);
-const secondAction = RootNavigator.router.getActionForPathAndParams('Sprights');
+const tomatoroAction = RootNavigator.router.getActionForPathAndParams('TomatoroTimer');
 const initialNavState = RootNavigator.router.getStateForAction(
-  secondAction,
-  tempNavState
+  tomatoroAction,
 );
 
 export const reducer = (state = initialNavState, action) => {
   let nextState;
   switch (action.type) {
+    case 'TomatoroTimer':
+      nextState = RootNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'TomatoroTimer' }),
+      );
+      break;
+    case 'Settings':
+      nextState = RootNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'Settings' }),
+      );
+      break;
     case 'SelectExercise':
       nextState = RootNavigator.router.getStateForAction(
-        NavigationActions.back(),
+        NavigationActions.navigate({ routeName: 'SelectExercise' }),
         state
       );
       break;
     case 'Sprights':
       nextState = RootNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Sprights' }),
+        state
+      );
+      break;
+    case 'SkipBreak':
+      nextState = RootNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'TomatoroTimer' }),
+        // NavigationActions.back(),
         state
       );
       break;
